@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+   head
+      meta(charset='utf-8')
+      title= Progresser
+
+      link(rel='stylesheet', href='css/loader.css')
+
+   body
+      .loader
+         .progress-back
+            .progress-front
+
+      script.
+         var element = document.querySelector('.loader .progress-front');
+         element.offsetLeft;
+         element.style.height = '20px';
+      script(src='//cdn.jsdelivr.net/jquery/1.11.2/jquery.min.js')
+      script(src='js/voila.pkgd.min.js')
+      script(src='js/progresser.js')
+      script.
+         $.progresser.setup({totalWeight: 2757, debug: true});
+
+         $.progresser.done(function() {
+            setTimeout(function() {
+               $('.loader').css('opacity', 0);
+
+               setTimeout(function() {
+                  $('.loader').hide();
+               }, 600);
+
+               console.log('all done');
+            }, 400);
+         });
+
+         $.progresser.progress(function(currentWeight, totalWeight) {
+            var height = (20 + (150 * currentWeight / totalWeight)) + 'px'
+            $('.loader .progress-front').height(height);
+         });
+
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&subset=latin,latin-ext')
+      script $.progresser.advance(28)
+
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css')
+      script $.progresser.advance(24)
+
+      link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css')
+      script $.progresser.advance(4)
+
+      link(rel='stylesheet', href='css/style.css')
+      script $.progresser.advance(1)
+
+      .container
+
+         .row
+            .col-md-12
+               h1(data-content='100') Progresser Demo
+
+         .row.image-row
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-01.png')
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-02.png')
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-03.png')
+
+         .row.image-row
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-04.png')
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-05.png')
+            .col-md-4
+               img(class='img-responsive progresser-wait', data-weight='200', src='img/pic-06.png')
+
+      .background-hidden
+         img(class='progresser-wait', data-weight='750', src='img/back-01.jpg')
+         img(class='progresser-wait', data-weight='750', src='img/back-02.jpg')
+
+      script $.progresser.collect()

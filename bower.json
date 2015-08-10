@@ -1,0 +1,22 @@
+{
+  "name": "shenyun-js",
+  "version": "0.0.1",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1",
+    "modularizedNormalizeScss": "~3.0.2",
+    "voila": "~1.1.0"
+  }
+}

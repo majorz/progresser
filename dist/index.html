@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/loader.css">
+  </head>
+  <body>
+    <div class="loader">
+      <div class="progress-back">
+        <div class="progress-front"></div>
+      </div>
+    </div>
+    <script>
+      var element = document.querySelector('.loader .progress-front');
+      element.offsetLeft;
+      element.style.height = '20px';
+    </script>
+    <script src="//cdn.jsdelivr.net/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/voila.pkgd.min.js"></script>
+    <script src="js/progresser.js"></script>
+    <script>
+      $.progresser.setup({totalWeight: 2757, debug: true});
+      
+      $.progresser.done(function() {
+         setTimeout(function() {
+            $('.loader').css('opacity', 0);
+      
+            setTimeout(function() {
+               $('.loader').hide();
+            }, 600);
+      
+            console.log('all done');
+         }, 400);
+      });
+      
+      $.progresser.progress(function(currentWeight, totalWeight) {
+         var height = (20 + (150 * currentWeight / totalWeight)) + 'px'
+         $('.loader .progress-front').height(height);
+      });
+      
+    </script>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Bitter:400,700,400italic&amp;subset=latin,latin-ext">
+    <script>$.progresser.advance(28)</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script>$.progresser.advance(24)</script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <script>$.progresser.advance(4)</script>
+    <link rel="stylesheet" href="css/style.css">
+    <script>$.progresser.advance(1)</script>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 data-content="100">Progresser Demo</h1>
+        </div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4"><img data-weight="200" src="img/pic-01.png" class="img-responsive progresser-wait"></div>
+        <div class="col-md-4"><img data-weight="200" src="img/pic-02.png" class="img-responsive progresser-wait"></div>
+        <div class="col-md-4"><img data-weight="200" src="img/pic-03.png" class="img-responsive progresser-wait"></div>
+      </div>
+      <div class="row image-row">
+        <div class="col-md-4"><img data-weight="200" src="img/pic-04.png" class="img-responsive progresser-wait"></div>
+        <div class="col-md-4"><img data-weight="200" src="img/pic-05.png" class="img-responsive progresser-wait"></div>
+        <div class="col-md-4"><img data-weight="200" src="img/pic-06.png" class="img-responsive progresser-wait"></div>
+      </div>
+    </div>
+    <div class="background-hidden"><img data-weight="750" src="img/back-01.jpg" class="progresser-wait"><img data-weight="750" src="img/back-02.jpg" class="progresser-wait"></div>
+    <script>$.progresser.collect()</script>
+  </body>
+</html>
